@@ -1,3 +1,22 @@
 time result of extraLargeArray 
 insert = 451.8955 ms
 append = 1.8253
+
+Results:
+{
+  tiny: { append: 0.0496, insert: 0.0235 },
+  small: { append: 0.009, insert: 0.007899999999999999 },
+  medium: { append: 0.0237, insert: 0.0834 },
+  large: { append: 0.2115, insert: 5.574 },
+  extraLarge: { append: 2.0084, insert: 453.53749999999997 }
+}
+
+doublerappend and doublerinsert depends on the size of the input array. As the size of the input array increases, 
+the time taken to double each element also increases.
+for tiny and small array the doublerinsert works better then doublerAppend because doublerinsert inserts the new elements at the beginning of the array 
+which takes less time
+
+for medium large and extralarge doublerAppend works better. As the size of the array increases inserting elements at the beginning
+of the array becomes slower due to the need to shift existing elements.
+
+overall doublerappend scales better than doublerinsert
